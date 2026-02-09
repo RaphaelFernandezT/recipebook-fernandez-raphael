@@ -6,7 +6,6 @@
     <ul>
         {% for recipe in recipes %}
             <h3> {{recipe.name}} </h3>
-            <li>
                 <h4> ingredients: </h4>
                 <ul>
                     {% for ingredient in recipe.ingredients %}
@@ -16,7 +15,6 @@
                 <form action={{recipe.link}}>
                     <input type="submit" value="View">
                 </form>
-            </li>
         {% endfor %}
     </ul>
 {% endblock %}
