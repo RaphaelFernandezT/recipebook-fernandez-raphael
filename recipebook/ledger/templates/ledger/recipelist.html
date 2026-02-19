@@ -3,12 +3,20 @@
 {% block content %}
 <h1>Recipe Book</h1>
 <ul>
-    <h2>Recipes
-
-    </h2>
+    <h1>Recipes</h1>
     {% for recipe in recipes %}
     <li>
-        {{ recipe.name }}
+        <h3>{{ recipe.name }}</h3>
+        <ul>
+        {% for ingredients in recipe.ingredients.all %}
+            <li>
+                {{ ingredients.quantity }} {{ ingredients.ingredient.name }} 
+            </li>
+            {% endfor %}
+            <form action="{% url 'ledger:recipedetail' recipe.pk %}" method="get">
+                <input type="submit" value="View Recipe">
+            </form>
+        </ul>        
     </li>
     {% endfor %}
 </ul>

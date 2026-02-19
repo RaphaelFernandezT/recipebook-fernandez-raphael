@@ -7,7 +7,7 @@ class Ingredient(models.Model):
     def __str__(self):
         return self.name
     def get_absolute_url(self):
-        return reverse('ingredientdetail', kwargs={'pk': self.pk})
+        return reverse('ledger:recipelist', kwargs={'pk': self.pk})
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
