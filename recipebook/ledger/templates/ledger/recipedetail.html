@@ -6,14 +6,11 @@
 
 <h3>Ingredients:</h3>
 <ul>
-    {% for recipe in recipe.ingredients.all %}
+    {% for recipes in recipe.ingredients.all %}
         <li>
-            {{ recipe.quantity }} {{ recipe.ingredient.name }} 
+            {{ recipes.quantity }} {{ recipes.ingredient.name }} 
         </li>
     {% endfor %}
-    <form action="{% url 'recipelist' %}">
-        <input type="submit" value="View Recipe List">
-    </form>
 </ul>
 
 {% endblock %}
