@@ -1,0 +1,19 @@
+{% extends 'ledger/base.html' %}
+
+{% block content %}
+<h1>Recipe Book</h1>
+<ul>
+    <h2>Recipes
+
+    </h2>
+    {% for recipe in recipes %}
+    <li>
+        {{recipe.name}}
+        <form action="{% url 'recipedetail' recipe.pk%}">
+            <input type="submit" value="View Recipe">
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
