@@ -5,3 +5,5 @@ urlpatterns = [
     path('recipes/list', RecipeListView.as_view(), name='recipelist'),
     path('recipe/<int:pk>/', RecipeDetailView.as_view(), name='recipedetail'),
 ]
+
+app_name = "ledger"

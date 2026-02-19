@@ -19,7 +19,7 @@ class Recipe(models.Model):
     
 
 class RecipeIngredient(models.Model):
-    quantity = models.DecimalField(max_length=100)
+    quantity = models.DecimalField(max_digits=100,decimal_places=0 )
     ingredient = models.ForeignKey(
         Ingredient,
         on_delete=models.CASCADE,

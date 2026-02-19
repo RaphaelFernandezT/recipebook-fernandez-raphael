@@ -9,7 +9,7 @@
     {% for recipe in recipes %}
     <li>
         {{recipe.name}}
-        <form action="{% url 'recipedetail' recipe.pk%}">
+        <form action="{% url 'recipedetail' recipe.pk%}" method="get">
             <input type="submit" value="View Recipe">
         </form>
     </li>
