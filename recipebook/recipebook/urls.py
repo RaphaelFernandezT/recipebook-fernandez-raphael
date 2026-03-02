@@ -21,7 +21,4 @@ from .views import recipelist, recipe1, recipe2
 urlpatterns = [
     path('ledger/', include('ledger.urls', namespace="ledger")),
     path('admin/', admin.site.urls),
-    path('recipes/list', recipelist, name='recipelist'),
-    path('recipe/1', recipe1, name='recipe1'),
-    path('recipe/2', recipe2, name='recipe2'),
 ]

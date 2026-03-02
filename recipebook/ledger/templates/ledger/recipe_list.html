@@ -1,0 +1,17 @@
+{% extends 'ledger/base.html' %}
+
+{% block content %}
+<h1>Recipe Book</h1>
+<ul>
+    <h1>Recipes</h1>
+    {% for recipe in recipes %}
+    <li>
+        <h3>{{ recipe.name }}</h3>
+        <ul>
+            <a href="{% url 'ledger:recipe_detail' recipe.id%}">Ingredients List</a>
+        </ul>        
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
