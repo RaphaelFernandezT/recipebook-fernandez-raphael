@@ -20,5 +20,6 @@ from .views import recipelist, recipe1, recipe2
 
 urlpatterns = [
     path('ledger/', include('ledger.urls', namespace="ledger")),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
 ]
