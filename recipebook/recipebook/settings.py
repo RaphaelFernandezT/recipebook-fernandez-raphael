@@ -59,7 +59,7 @@ ROOT_URLCONF = 'recipebook.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,5 +127,5 @@ STATIC_URL = os.getenv('STATIC_URL')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-LOGIN_REDIRECT_URL = '/blogpage/list'
+LOGIN_REDIRECT_URL = '/ledger/recipes/list'
 LOGOUT_REDIRECT_URL = '/accounts/login'

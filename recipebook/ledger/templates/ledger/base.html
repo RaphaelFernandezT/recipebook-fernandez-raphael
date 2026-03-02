@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>
-			Recipe Book
-	</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
 </head>
 <body>
-	{% block content %}
-        
+    {% if user.is_authenticated %}
+        <h3>Hello {{ user.username }}</h3>
+        {% include 'registration/logout.html' %}
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    {% block content %}        
     {% endblock %}
 </body>
 </html>

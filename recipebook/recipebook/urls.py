@@ -16,7 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import recipelist, recipe1, recipe2
 
 urlpatterns = [
     path('ledger/', include('ledger.urls', namespace="ledger")),
