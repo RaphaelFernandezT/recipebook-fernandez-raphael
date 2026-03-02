@@ -6,9 +6,9 @@
 
 <h3>Ingredients:</h3>
 <ul>    
-    {% for recipes in recipe.ingredients.all %}
+    {% for recipe_ingredients in recipe.ingredients.all %}
         <li>
-            {{ recipes.quantity }} {{ recipes.ingredient.name }} 
+            {{ recipe_ingredients.quantity }} {{ recipe_ingredients.ingredient.name }} 
         </li>
     {% endfor %}
     <a href="{% url 'ledger:recipe_list' %}">Back to Recipe List</a>
