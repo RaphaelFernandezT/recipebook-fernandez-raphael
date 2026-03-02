@@ -6,6 +6,7 @@
     <title>Recipes</title>
 </head>
 <body>
+    <h1>Recipe Book</h1>
     {% if user.is_authenticated %}
         <h3>Hello {{ user.username }}</h3>
         {% include 'registration/logout.html' %}
