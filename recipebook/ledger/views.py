@@ -10,5 +10,4 @@ class RecipeListView(ListView):
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'ledger/recipe_detail.html'
-    pk_url_kwarg = 'id'
     context_object_name = 'recipe'

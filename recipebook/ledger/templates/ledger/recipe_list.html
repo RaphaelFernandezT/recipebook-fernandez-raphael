@@ -8,7 +8,7 @@
     <li>
         <h3>{{ recipe.name }}</h3>
         <ul>
-            <a href="{% url 'ledger:recipe_detail' recipe.id%}">Ingredients List</a>
+            <a href="{{recipe.get_absolute_url}}">Ingredients List</a>
         </ul>        
     </li>
     {% endfor %}
