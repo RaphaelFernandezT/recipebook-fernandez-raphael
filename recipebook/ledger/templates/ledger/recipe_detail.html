@@ -5,11 +5,9 @@
     <p>Author:{{ recipe.author.name }}</p>
     <p>Created: {{ recipe.created_on|date }}</p>
     <p>Updated: {{ recipe.updated_on|date }}</p>
-    {% if recipe.image %}
-        <p>Image URL: {{ recipe.image.url }}</p>
-        <p>Image path: {{ recipe.image.path }}</p>
-        <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
-    {% endif %}
+    {% for recipe_image in recipe.image.all %}
+        <img src="{{ recipe_image.image.url }}" alt="{{ recipe_image.description }}">
+    {% endfor %}
 
     <h3>Ingredients:</h3>
     <ul>    
