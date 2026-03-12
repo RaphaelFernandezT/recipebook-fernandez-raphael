@@ -2,5 +2,13 @@ from django import forms
 
 from .models import *
 
-class RecipeForm(forms.Form):
-    recipe_name = forms.CharField(label='Task Name', max_length=100)
+class RecipeForm(forms.ModelForm):
+    class Meta:
+        model = Recipe
+        fields = '__all__'
+
+class RecipeImageForm(forms.ModelForm):
+    class Meta:
+        model = RecipeImage
+        fields = '__all__'
+    
