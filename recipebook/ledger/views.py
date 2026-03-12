@@ -37,4 +37,4 @@ def recipe_image_add(request, pk):
             return redirect('ledger:recipe_detail')
     else:
         form = RecipeImageForm()
-        return render(request, 'recipeimage_form.html', {'form': form})
+        return render(request, 'ledger/recipeimage_form.html', {'form': form})
