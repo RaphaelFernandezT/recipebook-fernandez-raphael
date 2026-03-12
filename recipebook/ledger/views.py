@@ -23,7 +23,3 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
     def form_invalid(self, form):
         form.instance.profile = Profile.objects.get(user=self.request.user)
         return super().form_invalid(form)
-
-class RecipeUpdateView(LoginRequiredMixin, UpdateView):
-    model = Recipe
-    form_class = RecipeForm
