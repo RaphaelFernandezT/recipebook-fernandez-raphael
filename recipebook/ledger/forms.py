@@ -10,5 +10,5 @@ class RecipeForm(forms.ModelForm):
 class RecipeImageForm(forms.ModelForm):
     class Meta:
         model = RecipeImage
-        fields = '__all__'
+        fields = ['image', 'description']
     

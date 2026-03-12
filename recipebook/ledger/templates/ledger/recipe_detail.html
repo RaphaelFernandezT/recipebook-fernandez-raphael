@@ -19,6 +19,6 @@
         <br/>
         <a href="{% url 'ledger:recipe_list' %}">Back to Recipe List</a>
     </ul>
-
+    <a href="{% url 'ledger:recipe_image_add' recipe.pk %}">Add Image</a>
     <form method="POST" enctype="multipart/form-data"></form>
 {% endblock %}

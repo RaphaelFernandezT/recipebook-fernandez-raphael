@@ -2,6 +2,8 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView
+from django.urls import reverse_lazy
+from django.shortcuts import render, redirect
 from .forms import *
 from .models import *
 
@@ -24,13 +26,15 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
         form.instance.profile = Profile.objects.get(user=self.request.user)
         return super().form_invalid(form)
     
-class RecipeImageCreateView(LoginRequiredMixin, CreateView):
-    model = RecipeImage
-    form_class = RecipeImageForm
-
-    def form_invalid(self, form):
-        form.instance.profile = Profile.objects.get(user=self.request.user)
-        return super().form_invalid(form)
-
-    def get_success_url(self):
-        return reverse('ledger:recipe_detail', args=[str(self.pk)])
+def recipe_image_add(request, pk):
+    recipe = Recipe.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = RecipeImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            recipeImage = form.save(commit=False)
+            recipeImage.recipe = recipe
+            recipeImage.save()
+            return redirect('ledger:recipe_detail')
+    else:
+        form = RecipeImageForm()
+        return render(request, 'recipeimage_form.html', {'form': form})
