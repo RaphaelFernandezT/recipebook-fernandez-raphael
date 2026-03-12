@@ -16,8 +16,32 @@ admin.site.register(User, UserAdmin)
 class RecipeIngredientInline(admin.TabularInline):
     model = RecipeIngredient
 
-@admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
+    model = Recipe
     inlines = [RecipeIngredientInline]
+    fieldsets = [
+        ('Details', {
+            'fields': [
+                'name'
+            ]
+        }),
+    ]
+    
+class RecipeIngredientAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ('Details', {
+            'fields': [
+                'quantity',
+                'ingredients'
+            ]
+        }),
+    ]
 
+
+
+admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Ingredient)
+
+
+
+
